@@ -590,7 +590,6 @@ class Canberra(object):
          raise CanberraException(res, "Failed to test play status of id %d" % playId)
       return isPlaying
 
-   # for @sil
    def easy_play_sync(self, eventName):
       """ play an event sound synchronously """
       self.play(1,
@@ -598,31 +597,6 @@ class Canberra(object):
                 None)
       while self.playing(1):
          time.sleep(0.01)
-
-      
-      
-# int ca_context_create(ca_context **c);
-# int ca_context_set_driver(ca_context *c, const char *driver);
-# int ca_context_change_device(ca_context *c, const char *device);
-# int ca_context_open(ca_context *c);
-# int ca_context_destroy(ca_context *c);
-# int ca_context_change_props(ca_context *c, ...) __attribute__((sentinel));
-# int ca_context_change_props_full(ca_context *c, ca_proplist *p);
-# int ca_context_play_full(ca_context *c, uint32_t id, ca_proplist *p, ca_finish_callback_t cb, void *userdata);
-# int ca_context_play(ca_context *c, uint32_t id, ...) __attribute__((sentinel));
-# int ca_context_cache_full(ca_context *c, ca_proplist *p);
-# int ca_context_cache(ca_context *c, ...) __attribute__((sentinel));
-# int ca_context_cancel(ca_context *c, uint32_t id);
-# int ca_context_playing(ca_context *c, uint32_t id, int *playing);
-# 
-# const char *ca_strerror(int code);
-# 
-# #ifdef __cplusplus
-# }
-# #endif
-# 
-# #endif
-
 
 if __name__ == "__main__":
    import time
