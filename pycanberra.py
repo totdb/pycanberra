@@ -4,7 +4,6 @@
 # License: LGPL 2.1
 ##########################################################################
 from ctypes import *
-import exceptions
 import time
 
 # /**
@@ -519,16 +518,16 @@ def GetApi():
 # int ca_proplist_set(ca_proplist *p, const char *key, const void *data, size_t nbytes);
 
 
-class CanberraException(exceptions.Exception):
+class CanberraException(Exception):
    def __init__(self, err, *args, **kwargs):
       self._err = err
-      super(exceptions.Exception, self).__init__(*args, **kwargs)
+      super(Exception, self).__init__(*args, **kwargs)
 
    def get_error(self):
       return self._err
 
    def __str__(self):
-      return super(exceptions.Exception, self).__str__() + " (error %d)" % self._err
+      return super(Exception, self).__str__() + " (error %d)" % self._err
    
 
 class Canberra(object):
